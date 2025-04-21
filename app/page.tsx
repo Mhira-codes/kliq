@@ -1,22 +1,21 @@
-'use client';
-import { useState } from 'react';
-import { cards, orders } from '@/data/orders';
-import { Card } from './components/Card';
-import { OrdersTable } from './components/CardTable';
-
+"use client";
+import { useState } from "react";
+import { cards, orders } from "@/data/orders";
+import { Card } from "./components/Card";
+import { OrdersTable } from "./components/CardTable";
 
 export default function AdminDashboard() {
   const [filter, setFilter] = useState<string | null>(null);
 
   const filteredOrders =
-    filter === 'all'
+    filter === "all"
       ? orders
       : filter
-      ? orders.filter(order => order.status === filter)
+      ? orders.filter((order) => order.status === filter)
       : [];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className=" flex flex-col gap-8  items-center ">
       <div className="flex justify-between gap-4 flex-wrap">
         {cards.map((card) => (
           <Card
@@ -32,8 +31,11 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      {(filter === 'all' || (filter && filteredOrders.length > 0)) && (
-        <OrdersTable orders={filteredOrders} />
+      {(filter === "all" || (filter && filteredOrders.length > 0)) && (
+        <div className="w-max">
+          {" "}
+          <OrdersTable orders={filteredOrders} />
+        </div>
       )}
     </div>
   );

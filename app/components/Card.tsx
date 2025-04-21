@@ -10,12 +10,13 @@ type CardProps = {
     return (
       <div
         onClick={onClick}
-        className={`cursor-pointer p-4 rounded-2xl shadow-md w-48 text-white transition duration-200 ${
-          isActive ? 'bg-blue-600' : 'bg-blue-400 hover:bg-blue-500'
+        className={` flex flex-col items-center cursor-pointer p-4 rounded-md shadow-md w-70 text-white transition duration-200 ${
+          isActive ? 'bg-amber-500' : 'bg-amber-500 hover:bg-amber-400'
         }`}
       >
-        <div className="text-xl font-semibold">{label}</div>
-        <div className="text-3xl mt-2 font-bold">{count}</div>
+          <div className="text-2xl mt-2 font-semibold">{count}</div>
+        <div className="text-xl font-medium">{label}</div>
+      
       </div>
     );
   }
